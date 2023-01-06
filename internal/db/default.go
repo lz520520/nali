@@ -1,9 +1,11 @@
 package db
 
 import (
+	"github.com/zu1k/nali/internal/constant"
 	"github.com/zu1k/nali/pkg/cdn"
 	"github.com/zu1k/nali/pkg/ip2region"
 	"github.com/zu1k/nali/pkg/qqwry"
+	"path/filepath"
 )
 
 func GetDefaultDBList() List {
@@ -14,7 +16,7 @@ func GetDefaultDBList() List {
 				"chunzhen",
 			},
 			Format:       FormatQQWry,
-			File:         "qqwry.dat",
+			File:         filepath.Join(constant.DataDirPath, "qqwry.dat"),
 			Languages:    LanguagesZH,
 			Types:        TypesIPv4,
 			DownloadUrls: qqwry.DownloadUrls,
@@ -26,7 +28,7 @@ func GetDefaultDBList() List {
 				"zx",
 			},
 			Format:    FormatZXIPv6Wry,
-			File:      "zxipv6wry.db",
+			File:      filepath.Join(constant.DataDirPath, "zxipv6wry.db"),
 			Languages: LanguagesZH,
 			Types:     TypesIPv6,
 		},
@@ -38,7 +40,7 @@ func GetDefaultDBList() List {
 				"geolite2",
 			},
 			Format:    FormatMMDB,
-			File:      "GeoLite2-City.mmdb",
+			File:      filepath.Join(constant.DataDirPath, "GeoLite2-City.mmdb"),
 			Languages: LanguagesAll,
 			Types:     TypesIP,
 		},
@@ -48,14 +50,14 @@ func GetDefaultDBList() List {
 				"db-ip",
 			},
 			Format:    FormatMMDB,
-			File:      "dbip.mmdb",
+			File:      filepath.Join(constant.DataDirPath, "dbip.mmdb"),
 			Languages: LanguagesAll,
 			Types:     TypesIP,
 		},
 		&DB{
 			Name:      "ipip",
 			Format:    FormatIPIP,
-			File:      "ipipfree.ipdb",
+			File:      filepath.Join(constant.DataDirPath, "ipipfree.ipdb"),
 			Languages: LanguagesZH,
 			Types:     TypesIP,
 		},
@@ -65,7 +67,7 @@ func GetDefaultDBList() List {
 				"i2r",
 			},
 			Format:       FormatIP2Region,
-			File:         "ip2region.xdb",
+			File:         filepath.Join(constant.DataDirPath, "ip2region.xdb"),
 			Languages:    LanguagesZH,
 			Types:        TypesIPv4,
 			DownloadUrls: ip2region.DownloadUrls,
@@ -73,7 +75,7 @@ func GetDefaultDBList() List {
 		&DB{
 			Name:      "ip2location",
 			Format:    FormatIP2Location,
-			File:      "IP2LOCATION-LITE-DB3.IPV6.BIN",
+			File:      filepath.Join(constant.DataDirPath, "IP2LOCATION-LITE-DB3.IPV6.BIN"),
 			Languages: LanguagesEN,
 			Types:     TypesIP,
 		},
@@ -81,7 +83,7 @@ func GetDefaultDBList() List {
 		&DB{
 			Name:         "cdn",
 			Format:       FormatCDNYml,
-			File:         "cdn.yml",
+			File:         filepath.Join(constant.DataDirPath, "cdn.yml"),
 			Languages:    LanguagesZH,
 			Types:        TypesCDN,
 			DownloadUrls: cdn.DownloadUrls,

@@ -14,7 +14,7 @@ func SetConfigPath(path string) {
 	prepareDir(constant.ConfigDirPath)
 	prepareDir(constant.DataDirPath)
 
-	_ = os.Chdir(constant.DataDirPath)
+	//_ = os.Chdir(constant.DataDirPath)
 }
 
 func UpdateDB() {
