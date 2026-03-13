@@ -6,5 +6,5 @@ import (
 )
 
 func DBFind(typ dbif.QueryType, query string) string {
-	return db.Find(typ, query)
+	return db.Find(typ, query).String()
 }
