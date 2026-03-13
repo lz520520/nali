@@ -1,15 +1,14 @@
 module github.com/zu1k/nali
 
-go 1.19
+go 1.25.0
 
 require (
-	github.com/adrg/xdg v0.4.0
 	github.com/fatih/color v1.16.0
 	github.com/google/go-github/v55 v55.0.0
 	github.com/google/martian v2.1.0+incompatible
 	github.com/ip2location/ip2location-go/v9 v9.6.1
 	github.com/ipipdotnet/ipdb-go v1.3.3
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20231013030745-3066d243cd04
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260313013624-04e51e218220
 	github.com/oschwald/geoip2-golang v1.9.0
 	github.com/saracen/go7z v0.0.0-20191010121135-9c09b6bd7fda
 	github.com/spf13/cobra v1.8.0

@@ -32,7 +32,6 @@ func NewIp2Region(filePath string) (*Ip2Region, error) {
 			return nil, err
 		}
 	}
-
 	f, err := os.OpenFile(filePath, os.O_RDONLY, 0400)
 	if err != nil {
 		return nil, err
@@ -43,7 +42,7 @@ func NewIp2Region(filePath string) (*Ip2Region, error) {
 	if err != nil {
 		return nil, err
 	}
-	searcher, err := xdb.NewWithBuffer(data)
+	searcher, err := xdb.NewWithBuffer(xdb.IPvx, data)
 	if err != nil {
 		fmt.Printf("无法解析 ip2region xdb 数据库: %s\n", err)
 		return nil, err
