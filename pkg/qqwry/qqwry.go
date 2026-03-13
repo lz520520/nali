@@ -14,9 +14,10 @@ import (
 )
 
 var DownloadUrls = []string{
-	"https://gh-release.zu1k.com/HMBSbige/qqwry/qqwry.dat", // redirect to HMBSbige/qqwry
+	"https://github.com/metowolf/qqwry.dat/releases/latest/download/qqwry.dat",
 	// Other repo:
-	// https://github.com/HMBSbige/qqwry
+	// https://github.com/HMBSbige/qqwry // This repository has been archived since Jun 27, 2024.
+	// https://github.com/FW27623/qqwry // This repository's dat format will not be maintained after October 2024.
 	// https://github.com/metowolf/qqwry.dat
 }
 
@@ -88,6 +89,10 @@ func (db QQwry) Find(query string, params ...string) (result fmt.Stringer, err e
 	reader := wry.NewReader(db.Data)
 	reader.Parse(offset + 4)
 	return reader.Result.DecodeGBK(), nil
+}
+
+func (db QQwry) Name() string {
+	return "qqwry"
 }
 
 func CheckFile(data []byte) bool {

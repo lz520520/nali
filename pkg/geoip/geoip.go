@@ -48,21 +48,37 @@ func (g GeoIP) Find(query string, params ...string) (result fmt.Stringer, err er
 	}
 
 	result = Result{
-		Country: record.Country.Names[lang],
-		City:    record.City.Names[lang],
+		Country:     getMapLang(record.Country.Names, lang),
+		CountryCode: record.Country.IsoCode,
+		Area:        getMapLang(record.City.Names, lang),
 	}
 	return
 }
 
+func (db GeoIP) Name() string {
+	return "geoip"
+}
+
 type Result struct {
-	Country string
-	City    string
+	Country     string `json:"country"`
+	CountryCode string `json:"country_code"`
+	Area        string `json:"area"`
 }
 
 func (r Result) String() string {
-	if r.City == "" {
+	if r.Area == "" {
 		return r.Country
 	} else {
-		return fmt.Sprintf("%s %s", r.Country, r.City)
+		return fmt.Sprintf("%s %s", r.Country, r.Area)
 	}
+}
+
+const DefaultLang = "en"
+
+func getMapLang(data map[string]string, lang string) string {
+	res, found := data[lang]
+	if found {
+		return res
+	}
+	return data[DefaultLang]
 }
